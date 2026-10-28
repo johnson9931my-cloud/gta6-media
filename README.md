@@ -2,8 +2,8 @@
 
 Media for @jonny_gta6 Threads posts (GTA 6, Russian-speaking audience).
 
-- `screenshots/` — official GTA 6 screenshots by Rockstar Games (promotional material, © Rockstar Games). Used in commentary/news posts with credit «📸 Rockstar Games» / «кадр: Rockstar Games».
-- `posts/YYYY-MM-DD/` — finished post images (screenshot + branded text, infographics).
+- `content-photo/` — official GTA 6 screenshots by Rockstar Games (promotional material, © Rockstar Games). Used in commentary/news posts with credit «📸 Rockstar Games» / «кадр: Rockstar Games».
+- `content-photo-ready/YYYY-MM-DD/` — finished post images (screenshot + branded text, infographics).
 - `clips/` — short vertical video clips cut from official trailers/gameplay.
 - `tools/make_post_image.py` — generator for branded 1080×1350 images.
 

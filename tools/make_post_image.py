@@ -2,9 +2,9 @@
 """Make a branded 4:5 post image for @jonny_gta6.
 
 Usage:
-  make_post_image.py --bg screenshots/Vice_City_10.jpg --out posts/2026-10-28_holivar.jpg \
+  make_post_image.py --bg content-photo/Vice_City_10.jpg --out content-photo-ready/2026-10-28_holivar.jpg \
       --badge "ХОЛИВАР ДНЯ" --line1 "ПК" --mid "или" --line2 "КОНСОЛЬ?" [--focus 0.5] [--credit "кадр: Rockstar Games"]
-  make_post_image.py --stat --out posts/x.jpg --badge "ЦИФРА ДНЯ" --line1 "25 ДНЕЙ" --line2 "до релиза GTA 6" --credit "Источник: Rockstar"
+  make_post_image.py --stat --out content-photo-ready/x.jpg --badge "ЦИФРА ДНЯ" --line1 "25 ДНЕЙ" --line2 "до релиза GTA 6" --credit "Источник: Rockstar"
 
 --focus: horizontal crop center 0..1 (0 = left edge, 1 = right edge) to keep faces in frame.
 --stat without --bg draws a brand-colour background (for infographics / numbers).
