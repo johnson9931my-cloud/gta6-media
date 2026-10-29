@@ -1,0 +1,344 @@
+[
+ {
+  "type": "otschet",
+  "date": "2026-10-30",
+  "path": "content-photo-ready/library/otschet/2026-10-30.jpg",
+  "bg": "Vice_City_01"
+ },
+ {
+  "type": "otschet",
+  "date": "2026-10-31",
+  "path": "content-photo-ready/library/otschet/2026-10-31.jpg",
+  "bg": "Jason_and_Lucia_02"
+ },
+ {
+  "type": "otschet",
+  "date": "2026-11-01",
+  "path": "content-photo-ready/library/otschet/2026-11-01.jpg",
+  "bg": "Leonida_Keys_01"
+ },
+ {
+  "type": "otschet",
+  "date": "2026-11-02",
+  "path": "content-photo-ready/library/otschet/2026-11-02.jpg",
+  "bg": "Lucia_Caminos_04"
+ },
+ {
+  "type": "otschet",
+  "date": "2026-11-03",
+  "path": "content-photo-ready/library/otschet/2026-11-03.jpg",
+  "bg": "Vice_City_05"
+ },
+ {
+  "type": "otschet",
+  "date": "2026-11-04",
+  "path": "content-photo-ready/library/otschet/2026-11-04.jpg",
+  "bg": "Jason_Duval_04"
+ },
+ {
+  "type": "otschet",
+  "date": "2026-11-05",
+  "path": "content-photo-ready/library/otschet/2026-11-05.jpg",
+  "bg": "Port_Gellhorn_02"
+ },
+ {
+  "type": "otschet",
+  "date": "2026-11-06",
+  "path": "content-photo-ready/library/otschet/2026-11-06.jpg",
+  "bg": "Real_Dimez_02"
+ },
+ {
+  "type": "otschet",
+  "date": "2026-11-07",
+  "path": "content-photo-ready/library/otschet/2026-11-07.jpg",
+  "bg": "Vice_City_08"
+ },
+ {
+  "type": "otschet",
+  "date": "2026-11-08",
+  "path": "content-photo-ready/library/otschet/2026-11-08.jpg",
+  "bg": "Ambrosia_02"
+ },
+ {
+  "type": "otschet",
+  "date": "2026-11-09",
+  "path": "content-photo-ready/library/otschet/2026-11-09.jpg",
+  "bg": "Jason_and_Lucia_10"
+ },
+ {
+  "type": "otschet",
+  "date": "2026-11-10",
+  "path": "content-photo-ready/library/otschet/2026-11-10.jpg",
+  "bg": "Grassrivers_02"
+ },
+ {
+  "type": "otschet",
+  "date": "2026-11-11",
+  "path": "content-photo-ready/library/otschet/2026-11-11.jpg",
+  "bg": "Vice_City_03"
+ },
+ {
+  "type": "otschet",
+  "date": "2026-11-12",
+  "path": "content-photo-ready/library/otschet/2026-11-12.jpg",
+  "bg": "Lucia_Caminos_08"
+ },
+ {
+  "type": "otschet",
+  "date": "2026-11-13",
+  "path": "content-photo-ready/library/otschet/2026-11-13.jpg",
+  "bg": "Mount_Kalaga_National_Park_04"
+ },
+ {
+  "type": "otschet",
+  "date": "2026-11-14",
+  "path": "content-photo-ready/library/otschet/2026-11-14.jpg",
+  "bg": "Jason_Duval_09"
+ },
+ {
+  "type": "otschet",
+  "date": "2026-11-15",
+  "path": "content-photo-ready/library/otschet/2026-11-15.jpg",
+  "bg": "Vice_City_06"
+ },
+ {
+  "type": "otschet",
+  "date": "2026-11-16",
+  "path": "content-photo-ready/library/otschet/2026-11-16.jpg",
+  "bg": "Raul_Bautista_02"
+ },
+ {
+  "type": "otschet",
+  "date": "2026-11-17",
+  "path": "content-photo-ready/library/otschet/2026-11-17.jpg",
+  "bg": "Jason_and_Lucia_11"
+ },
+ {
+  "type": "otschet",
+  "date": "2026-11-18",
+  "path": "content-photo-ready/library/otschet/2026-11-18.jpg",
+  "bg": "Vice_City_09"
+ },
+ {
+  "type": "otschet",
+  "date": "2026-11-19",
+  "path": "content-photo-ready/library/otschet/2026-11-19.jpg",
+  "bg": "Jason_and_Lucia_12"
+ },
+ {
+  "type": "holivar",
+  "slug": "pk_konsol",
+  "text": "ПК или КОНСОЛЬ?",
+  "path": "content-photo-ready/library/holivar/pk_konsol.jpg",
+  "bg": "Vice_City_10"
+ },
+ {
+  "type": "holivar",
+  "slug": "ps5_xbox",
+  "text": "PS5 или XBOX?",
+  "path": "content-photo-ready/library/holivar/ps5_xbox.jpg",
+  "bg": "ULTIMATE_EDITION_01"
+ },
+ {
+  "type": "holivar",
+  "slug": "dzheyson_lyusiya",
+  "text": "ДЖЕЙСОН или ЛЮСИЯ?",
+  "path": "content-photo-ready/library/holivar/dzheyson_lyusiya.jpg",
+  "bg": "Jason_and_Lucia_01"
+ },
+ {
+  "type": "holivar",
+  "slug": "onlayn_syuzhet",
+  "text": "ОНЛАЙН или СЮЖЕТ?",
+  "path": "content-photo-ready/library/holivar/onlayn_syuzhet.jpg",
+  "bg": "Real_Dimez_01"
+ },
+ {
+  "type": "holivar",
+  "slug": "vc_ls",
+  "text": "ВАЙС-СИТИ или ЛОС-САНТОС?",
+  "path": "content-photo-ready/library/holivar/vc_ls.jpg",
+  "bg": "Vice_City_11"
+ },
+ {
+  "type": "holivar",
+  "slug": "gta6_gta5",
+  "text": "GTA 6 или GTA 5?",
+  "path": "content-photo-ready/library/holivar/gta6_gta5.jpg",
+  "bg": "Vice_City_02"
+ },
+ {
+  "type": "holivar",
+  "slug": "disk_cifra",
+  "text": "ДИСК или ЦИФРА?",
+  "path": "content-photo-ready/library/holivar/disk_cifra.jpg",
+  "bg": "ULTIMATE_EDITION_WYMAN_CAR_COLLECTION_01"
+ },
+ {
+  "type": "holivar",
+  "slug": "hayp_obman",
+  "text": "ХАЙП или РАЗОЧАРОВАНИЕ?",
+  "path": "content-photo-ready/library/holivar/hayp_obman.jpg",
+  "bg": "Jason_Duval_03"
+ },
+ {
+  "type": "holivar",
+  "slug": "tachka_vertolet",
+  "text": "ТАЧКА или ВЕРТОЛЁТ?",
+  "path": "content-photo-ready/library/holivar/tachka_vertolet.jpg",
+  "bg": "ULTIMATE_EDITION_GROTTI_CHEETAH_01"
+ },
+ {
+  "type": "holivar",
+  "slug": "tiho_haos",
+  "text": "ТИХО или ХАОС?",
+  "path": "content-photo-ready/library/holivar/tiho_haos.jpg",
+  "bg": "Jason_Duval_07"
+ },
+ {
+  "type": "holivar",
+  "slug": "noch_den",
+  "text": "НОЧЬ или ДЕНЬ?",
+  "path": "content-photo-ready/library/holivar/noch_den.jpg",
+  "bg": "Vice_City_07"
+ },
+ {
+  "type": "holivar",
+  "slug": "gorod_bolota",
+  "text": "ГОРОД или БОЛОТА?",
+  "path": "content-photo-ready/library/holivar/gorod_bolota.jpg",
+  "bg": "Grassrivers_04"
+ },
+ {
+  "type": "holivar",
+  "slug": "relize_vyhodnye",
+  "text": "НОЧЬ РЕЛИЗА или ВЫХОДНЫЕ?",
+  "path": "content-photo-ready/library/holivar/relize_vyhodnye.jpg",
+  "bg": "Lucia_Caminos_07"
+ },
+ {
+  "type": "holivar",
+  "slug": "obzory_spoylery",
+  "text": "ОБЗОРЫ или БЕЗ СПОЙЛЕРОВ?",
+  "path": "content-photo-ready/library/holivar/obzory_spoylery.jpg",
+  "bg": "Lucia_Caminos_09"
+ },
+ {
+  "type": "holivar",
+  "slug": "vertical_classic",
+  "text": "РЕАЛИЗМ или АРКАДА?",
+  "path": "content-photo-ready/library/holivar/vertical_classic.jpg",
+  "bg": "Port_Gellhorn_04"
+ },
+ {
+  "type": "holivar",
+  "slug": "cal_boobie",
+  "text": "КЭЛ или БУБИ?",
+  "path": "content-photo-ready/library/holivar/cal_boobie.jpg",
+  "bg": "Cal_Hampton_02"
+ },
+ {
+  "type": "holivar",
+  "slug": "radio_spotify",
+  "text": "РАДИО или СВОЯ МУЗЫКА?",
+  "path": "content-photo-ready/library/holivar/radio_spotify.jpg",
+  "bg": "Real_Dimez_03"
+ },
+ {
+  "type": "holivar",
+  "slug": "lodka_motocikl",
+  "text": "ЛОДКА или МОТОЦИКЛ?",
+  "path": "content-photo-ready/library/holivar/lodka_motocikl.jpg",
+  "bg": "Leonida_Keys_04"
+ },
+ {
+  "type": "novost",
+  "path": "content-photo-ready/library/novost/Vice_City_04.jpg",
+  "bg": "Vice_City_04"
+ },
+ {
+  "type": "novost",
+  "path": "content-photo-ready/library/novost/Jason_and_Lucia_03.jpg",
+  "bg": "Jason_and_Lucia_03"
+ },
+ {
+  "type": "novost",
+  "path": "content-photo-ready/library/novost/Lucia_Caminos_01.jpg",
+  "bg": "Lucia_Caminos_01"
+ },
+ {
+  "type": "novost",
+  "path": "content-photo-ready/library/novost/Jason_Duval_01.jpg",
+  "bg": "Jason_Duval_01"
+ },
+ {
+  "type": "novost",
+  "path": "content-photo-ready/library/novost/Vice_City_12.jpg",
+  "bg": "Vice_City_12"
+ },
+ {
+  "type": "novost",
+  "path": "content-photo-ready/library/novost/Ambrosia_04.jpg",
+  "bg": "Ambrosia_04"
+ },
+ {
+  "type": "novost",
+  "path": "content-photo-ready/library/novost/Port_Gellhorn_05.jpg",
+  "bg": "Port_Gellhorn_05"
+ },
+ {
+  "type": "novost",
+  "path": "content-photo-ready/library/novost/Leonida_Keys_06.jpg",
+  "bg": "Leonida_Keys_06"
+ },
+ {
+  "type": "novost",
+  "path": "content-photo-ready/library/novost/DreQuan_Priest_01.jpg",
+  "bg": "DreQuan_Priest_01"
+ },
+ {
+  "type": "novost",
+  "path": "content-photo-ready/library/novost/Brian_Heder_02.jpg",
+  "bg": "Brian_Heder_02"
+ },
+ {
+  "type": "novost",
+  "path": "content-photo-ready/library/novost/Mount_Kalaga_National_Park_01.jpg",
+  "bg": "Mount_Kalaga_National_Park_01"
+ },
+ {
+  "type": "novost",
+  "path": "content-photo-ready/library/novost/Boobie_Ike_02.jpg",
+  "bg": "Boobie_Ike_02"
+ },
+ {
+  "type": "novost",
+  "path": "content-photo-ready/library/novost/Raul_Bautista_04.jpg",
+  "bg": "Raul_Bautista_04"
+ },
+ {
+  "type": "novost",
+  "path": "content-photo-ready/library/novost/Grassrivers_01.jpg",
+  "bg": "Grassrivers_01"
+ },
+ {
+  "type": "novost",
+  "path": "content-photo-ready/library/novost/Jason_and_Lucia_08.jpg",
+  "bg": "Jason_and_Lucia_08"
+ },
+ {
+  "type": "novost",
+  "path": "content-photo-ready/library/novost/ULTIMATE_EDITION_ELECTRIC_FANG_01.jpg",
+  "bg": "ULTIMATE_EDITION_ELECTRIC_FANG_01"
+ },
+ {
+  "type": "novost",
+  "path": "content-photo-ready/library/novost/Vice_City_10.jpg",
+  "bg": "Vice_City_10"
+ },
+ {
+  "type": "novost",
+  "path": "content-photo-ready/library/novost/Lucia_Caminos_06.jpg",
+  "bg": "Lucia_Caminos_06"
+ }
+]
