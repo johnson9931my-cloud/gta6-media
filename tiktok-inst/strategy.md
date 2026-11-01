@@ -90,7 +90,7 @@
  "publicationDate": {"dateTime": "2026-11-02T17:45:00", "timezone": "Europe/Dublin"},
  "text": "<подпись TikTok>",
  "videoCoverMilliseconds": 1500,
- "tiktokData": {"disableComment": false, "disableDuet": false, "disableStitch": false, "privacyOption": "PUBLIC_TO_EVERYONE",
+ "tiktokData": {"title": "<короткий заголовок до ~90 символов, обязателен: без него Metricool отвечает «TikTok title is required»>", "disableComment": false, "disableDuet": false, "disableStitch": false, "privacyOption": "PUBLIC_TO_EVERYONE",
    "commercialContentThirdParty": false, "commercialContentOwnBrand": false, "autoAddMusic": false, "isAigc": false}}
 ```
 
