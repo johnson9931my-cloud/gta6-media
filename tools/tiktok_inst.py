@@ -2,7 +2,7 @@
 """TikTok + Instagram autoposting helper for the cloud routines (repo johnson9931my-cloud/gta6-media).
 
 Videos arrive in videos/queue/<slug>.mp4 with <slug>.json (transcript, size, cover candidates) and
-<slug>.jpg (storyboard), sometimes with <slug>_cover.jpg (the author's cover photo, cover_url in the json), uploaded from the Mac by Инструменты/автопостинг.py upload. Every command prints JSON.
+<slug>.jpg (storyboard), sometimes with <slug>_cover.jpg and <slug>_cover_instagram.jpg (the author's covers, cover_url and cover_url_instagram in the json), uploaded from the Mac by Инструменты/автопостинг.py upload. Every command prints JSON.
 
   python3 tools/tiktok_inst.py scan                 # queue items not yet scheduled (new or in reserve)
   python3 tools/tiktok_inst.py slots --network tiktok --taken taken.json   # free daily slots, nearest first
@@ -50,8 +50,8 @@ def cmd_scan(_):
         meta = json.loads(meta_path.read_text(encoding="utf-8")) if meta_path.exists() else {}
         sheet = mp4.with_suffix(".jpg")
         cover = meta.get("cover_url")
-        items.append({"slug": slug, "status": status, "media_url": RAW + f"videos/queue/{mp4.name}", "cover_url": cover,
-                      **({"cover_rule": "обложка от автора: videoThumbnailUrl = cover_url, videoCoverMilliseconds не передавать"} if cover else {}),
+        items.append({"slug": slug, "status": status, "media_url": RAW + f"videos/queue/{mp4.name}", "cover_url": cover, "cover_url_instagram": meta.get("cover_url_instagram"),
+                      **({"cover_rule": "обложка от автора: в посте TikTok videoThumbnailUrl = cover_url, в посте Instagram videoThumbnailUrl = cover_url_instagram, а если его нет, cover_url; videoCoverMilliseconds не передавать"} if cover else {}),
                       "size_mb": round(mp4.stat().st_size / 1e6, 1), "sheet": str(sheet) if sheet.exists() else None,
                       "meta": meta or "нет метаданных — смотри раскадровку или анализируй файл сам (ffmpeg)"})
     out({"queue": str(QUEUE), "items": items})
@@ -98,7 +98,7 @@ def cmd_record(a):
 def cmd_published(a):
     slug = a[0]
     PUBLISHED.mkdir(parents=True, exist_ok=True)
-    for ext in (".json", ".jpg", "_cover.jpg"):
+    for ext in (".json", ".jpg", "_cover.jpg", "_cover_instagram.jpg"):
         f = QUEUE / f"{slug}{ext}"
         if f.exists():
             subprocess.run(["git", "-C", str(REPO), "mv", "-f", str(f), str(PUBLISHED / f.name)], check=True)
