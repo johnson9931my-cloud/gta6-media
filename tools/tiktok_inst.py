@@ -5,7 +5,7 @@ Videos arrive in videos/queue/<slug>.mp4 with <slug>.json (transcript, size, cov
 <slug>.jpg (storyboard), sometimes with <slug>_cover.jpg (the author's cover photo, cover_url in the json), uploaded from the Mac by Инструменты/автопостинг.py upload. Every command prints JSON.
 
   python3 tools/tiktok_inst.py scan                 # queue items not yet scheduled (new or in reserve)
-  python3 tools/tiktok_inst.py slots --network tiktok --best best.json --taken taken.json [--fallback other.json]
+  python3 tools/tiktok_inst.py slots --network tiktok --taken taken.json   # free daily slots, nearest first
   python3 tools/tiktok_inst.py record <slug> <key> '<json>'
   python3 tools/tiktok_inst.py published <slug>     # after every network is out: drop the mp4, keep json/jpg in videos/published/
   python3 tools/tiktok_inst.py ledger
@@ -21,8 +21,9 @@ PUBLISHED = REPO / "videos/published"
 LEDGER = REPO / "tiktok-inst/ledger.json"
 RAW = "https://raw.githubusercontent.com/johnson9931my-cloud/gta6-media/main/"
 TZ = ZoneInfo("Europe/Dublin")
-# Fallback audience activity (Dublin hours) when a network has no best-time data yet; from the brand's TikTok curve, 2026-10-29.
-PRIOR = {9: 0.55, 10: 0.95, 11: 0.65, 12: 0.9, 13: 0.62, 14: 0.6, 15: 0.66, 16: 0.76, 17: 0.75, 18: 0.97, 19: 0.71, 20: 0.6, 21: 0.42}
+# The two daily slots, Dublin time: 15 minutes before the strongest TikTok peaks, 10:00 and 18:00 on Metricool's curve (checked 2026-11-02).
+# Instagram has no curve of its own yet, so it follows TikTok.
+SLOTS = {"tiktok": [(9, 45), (17, 45)], "instagram": [(9, 50), (17, 50)]}
 
 
 def out(obj):
@@ -59,47 +60,27 @@ def cmd_scan(_):
 def cmd_slots(a):
     import argparse
     ap = argparse.ArgumentParser()
-    ap.add_argument("--network", required=True)
-    ap.add_argument("--best", required=True)
-    ap.add_argument("--fallback")
+    ap.add_argument("--network", required=True, choices=sorted(SLOTS))
     ap.add_argument("--taken")
     ap.add_argument("--days", type=int, default=3)
-    ap.add_argument("--min-lead", type=float, default=8.0)
+    ap.add_argument("--min-lead", type=float, default=1.0)
     ap.add_argument("--min-gap", type=float, default=4.0)
-    ap.add_argument("--earliest-hour", type=int, default=9)
-    ap.add_argument("--latest-hour", type=int, default=21)
+    ap.add_argument("--best")  # not used since the slots became fixed; kept so an older prompt still runs
+    ap.add_argument("--fallback")
     o = ap.parse_args(a)
 
-    def curve(path):
-        if not path or not Path(path).exists():
-            return None
-        d = json.loads(Path(path).read_text(encoding="utf-8"))
-        d = d.get("data", d)
-        c = {(int(x["dayOfWeek"]), int(h["hourOfDay"])): float(h["value"]) for x in d for h in x["bestTimesByHour"]}
-        return c if any(c.values()) else None
-
-    own = curve(o.best)
-    c = own or curve(o.fallback)
-    source = "своя статистика" if own else ("статистика соседней сети" if c else "базовый профиль аудитории")
-    top = max(c.values()) if c else 1.0
     taken = [datetime.fromisoformat(t).astimezone(TZ) for t in json.loads(Path(o.taken).read_text())] if o.taken and Path(o.taken).exists() else []
     now = datetime.now(TZ)
-    cands = []
+    free = []
     for day in range(o.days + 1):
-        d0 = (now + timedelta(days=day)).replace(minute=0, second=0, microsecond=0)
-        for hour in range(o.earliest_hour, o.latest_hour + 1):
-            t = d0.replace(hour=hour)
+        for hour, minute in SLOTS[o.network]:
+            t = (now + timedelta(days=day)).replace(hour=hour, minute=minute, second=0, microsecond=0)
             if t < now + timedelta(hours=o.min_lead) or t > now + timedelta(days=o.days):
                 continue
-            score = (c.get((t.isoweekday(), hour), 0) / top) if c else PRIOR.get(hour, 0)
-            if score <= 0:
-                continue
-            clash = any(abs((t - x).total_seconds()) < o.min_gap * 3600 for x in taken)
-            if not clash:
-                cands.append({"datetime": t.isoformat(timespec="minutes"), "weekday": t.strftime("%a"), "hour": hour, "score": round(score, 3)})
-    cands.sort(key=lambda x: -x["score"])
-    out({"network": o.network, "source": source, "timezone": "Europe/Dublin", "now": now.isoformat(timespec="minutes"),
-         "top_free_slots": cands[:12], "note": "ставь на :40–:50 предыдущего часа перед сильным пиком"})
+            if not any(abs((t - x).total_seconds()) < o.min_gap * 3600 for x in taken):
+                free.append({"datetime": t.isoformat(timespec="minutes"), "weekday": t.strftime("%a")})
+    out({"network": o.network, "timezone": "Europe/Dublin", "now": now.isoformat(timespec="minutes"), "free_slots": free,
+         "note": "бери первый из free_slots: ролик идёт в ближайший свободный слот"})
 
 
 def cmd_record(a):
