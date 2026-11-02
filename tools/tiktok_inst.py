@@ -21,9 +21,9 @@ PUBLISHED = REPO / "videos/published"
 LEDGER = REPO / "tiktok-inst/ledger.json"
 RAW = "https://raw.githubusercontent.com/johnson9931my-cloud/gta6-media/main/"
 TZ = ZoneInfo("Europe/Dublin")
-# The two daily slots, Dublin time: 15 minutes before the strongest TikTok peaks, 10:00 and 18:00 on Metricool's curve (checked 2026-11-02).
-# Instagram has no curve of its own yet, so it follows TikTok.
-SLOTS = {"tiktok": [(9, 45), (17, 45)], "instagram": [(9, 50), (17, 50)]}
+# The two daily slots in Moscow time, which has no clock changes; the owner chose 11:00 and 18:00 on 2026-11-02.
+MSK = ZoneInfo("Europe/Moscow")
+SLOTS = {"tiktok": [(11, 0), (18, 0)], "instagram": [(11, 5), (18, 5)]}
 
 
 def out(obj):
@@ -63,7 +63,7 @@ def cmd_slots(a):
     ap.add_argument("--network", required=True, choices=sorted(SLOTS))
     ap.add_argument("--taken")
     ap.add_argument("--days", type=int, default=3)
-    ap.add_argument("--min-lead", type=float, default=1.0)
+    ap.add_argument("--min-lead", type=float, default=0.33)  # the 10:10 run has to make the 11:00 slot
     ap.add_argument("--min-gap", type=float, default=4.0)
     ap.add_argument("--best")  # not used since the slots became fixed; kept so an older prompt still runs
     ap.add_argument("--fallback")
@@ -74,11 +74,11 @@ def cmd_slots(a):
     free = []
     for day in range(o.days + 1):
         for hour, minute in SLOTS[o.network]:
-            t = (now + timedelta(days=day)).replace(hour=hour, minute=minute, second=0, microsecond=0)
+            t = (now + timedelta(days=day)).astimezone(MSK).replace(hour=hour, minute=minute, second=0, microsecond=0).astimezone(TZ)
             if t < now + timedelta(hours=o.min_lead) or t > now + timedelta(days=o.days):
                 continue
             if not any(abs((t - x).total_seconds()) < o.min_gap * 3600 for x in taken):
-                free.append({"datetime": t.isoformat(timespec="minutes"), "weekday": t.strftime("%a")})
+                free.append({"datetime": t.isoformat(timespec="minutes"), "moscow": t.astimezone(MSK).strftime("%H:%M"), "weekday": t.strftime("%a")})
     out({"network": o.network, "timezone": "Europe/Dublin", "now": now.isoformat(timespec="minutes"), "free_slots": free,
          "note": "бери первый из free_slots: ролик идёт в ближайший свободный слот"})
 
