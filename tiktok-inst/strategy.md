@@ -73,7 +73,11 @@
   - `#gtaonline` — только если про онлайн
 - **широкие (максимум один):** `#игры` `#геймеры` `#gaming`
 
-**Обложка:** `videoCoverMilliseconds` — кадр первых 0,5–3 с с лицом и крупным текстом-крючком. В TikTok работает только для бизнес-аккаунта, на личном молча игнорируется.
+**Обложка:**
+- **Есть `cover_url` (фото от автора):** в обоих постах передай `"videoThumbnailUrl": "<cover_url>"` и не передавай `videoCoverMilliseconds`. Это правило важнее шага про кадр обложки в задании запуска.
+- **Нет `cover_url`:** `videoCoverMilliseconds` — кадр первых 0,5–3 с с лицом и крупным текстом-крючком. Ролик из-за отсутствия фото не задерживать.
+- В TikTok оба варианта работают только для бизнес-аккаунта, на личном молча игнорируются.
+- В отчёте напиши, какая обложка стоит у каждого поста: фото автора или кадр.
 
 **Метки ИИ:**
 - `isAigc` (TikTok) и `instagramData.isAiGenerated` = `false` по умолчанию.
@@ -94,12 +98,14 @@
    "commercialContentThirdParty": false, "commercialContentOwnBrand": false, "autoAddMusic": false, "isAigc": false}}
 ```
 
+С фото от автора вместо строки `videoCoverMilliseconds` — `"videoThumbnailUrl": "<cover_url>"`.
+
 Для Instagram в том же шаблоне:
 - `"providers": [{"network": "instagram"}]`;
 - вместо `tiktokData` — `"instagramData": {"type": "REEL", "showReelOnFeed": true, "isAiGenerated": false}`;
 - для Trial Reel `"type": "TRIAL_REEL"`.
 
-Если Metricool вернул `VIDEO_THUMBNAIL_NOT_APPLICABLE`, один раз повторить **без** `videoCoverMilliseconds`. Любую другую ошибку не повторять — записать в отчёт дословно.
+Если Metricool вернул `VIDEO_THUMBNAIL_NOT_APPLICABLE`, один раз повторить **без** `videoCoverMilliseconds` и `videoThumbnailUrl` и написать об этом в отчёте. Любую другую ошибку не повторять — записать в отчёт дословно.
 
 ## 6. Что проверять в ролике перед публикацией
 
